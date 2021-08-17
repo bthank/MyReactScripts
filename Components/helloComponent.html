@@ -12,7 +12,16 @@
 <body>
 	<div id="root"></div>
 	<script type="text/babel">
-		ReactDOM.render(<h1>First React</h1>,document.getElementById("root"));
+		/*create a new React component called Hello */
+		class Hello extends React.Component{
+			/* override a method called render  */
+			render(){
+				return <b>Hello</b>;
+			}
+		}
+	
+		/* use the React component as if you are using an HTML element in the render method  */
+		ReactDOM.render(<div id="test"><Hello/><br/><Hello/><br/><Hello/><br/><Hello/></div>,document.getElementById("root"));
 	</script>
 </body>
 </html>
