@@ -13,12 +13,12 @@
 	<div id="root"></div>
 	<script type="text/babel">
 		/*create a new React component called Hello */
-		class Hello extends React.Component{
+		function Hello(props) {
 			/* override a method called render  */
-			render(){
+			 
 				/* this.props.target */
-				return <b>Hello {this.props.name} {this.props.children}</b>;
-			}
+				return <b>Hello {props.name} {props.children}</b>;
+			 
 		}
 	
 		/* use the React component as if you are using an HTML element in the render method  */
