@@ -19,16 +19,34 @@
 				return 	<div><h1>Customer Details</h1>
 							<b>Name: {this.props.name}</b><br/>
 							<b>Email: {this.props.email}</b><br/>
-						</div>
-			
+							<DisplayAddress address={this.props.address}/>
+						</div>;
 			}
-		
-		
 		}
+		
+		class DisplayAddress extends React.Component {
+			render() {
+				return 	<div><h2>Address</h2>
+							<b>Street: {this.props.address.street}</b><br/>
+							<b>City: {this.props.address.city}</b><br/>
+						</div>;
+			}
+		}
+		
+		var address1 = {
+			street: "Spice Wood Springs",
+			city: "Chatanooga"
+		
+		};
+		var address2 = {
+			street: "Williston Drive",
+			city: "Seattle"
+		
+		};
 	
 		/* use the React component as if you are using an HTML element in the render method  */
 		/*   ReactDOM.render(JSX,find document element) */
-		ReactDOM.render(<div><DisplayCustomer name="John" email="john.fowler@yahoo.com"/> <DisplayCustomer name="Phil" email="phil.lemon@yahoo.com"/> </div>,document.getElementById("root"));
+		ReactDOM.render(<div><DisplayCustomer name="John" email="john.fowler@yahoo.com" address={address1}/> <DisplayCustomer name="Phil" email="phil.lemon@yahoo.com" address={address2}/> </div>,document.getElementById("root"));
 	</script>
 </body>
 </html>
