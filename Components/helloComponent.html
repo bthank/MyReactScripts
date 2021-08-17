@@ -16,12 +16,13 @@
 		class Hello extends React.Component{
 			/* override a method called render  */
 			render(){
-				return <b>Hello</b>;
+				/* this.props.target */
+				return <b>Hello {this.props.name}</b>;
 			}
 		}
 	
 		/* use the React component as if you are using an HTML element in the render method  */
-		ReactDOM.render(<div id="test"><Hello/><br/><Hello/><br/><Hello/><br/><Hello/></div>,document.getElementById("root"));
+		ReactDOM.render(<div id="test"><Hello name="Mark"/><br/><Hello name="John"/><br/><Hello name="Amy"/><br/><Hello name="Sarah"/></div>,document.getElementById("root"));
 	</script>
 </body>
 </html>
