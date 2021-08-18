@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Display Country Names</title>
+	<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+	
+	<style>
+		 
+	</style>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+	
+		class Text extends React.Component{
+		
+			render() {
+				return <div>
+							{this.props.children}
+				
+						</div>;
+			
+			}
+		
+		
+		}
+	
+	
+	
+		ReactDOM.render(<div> 
+								<Text>USA</Text>  
+								<Text>Canada</Text>  
+								<Text>Great Britain</Text> 
+								<Text>Brazil</Text>  
+								<Text>India</Text>      								
+						</div>,document.getElementById("root"));
+	</script>
+</body>
+</html>
