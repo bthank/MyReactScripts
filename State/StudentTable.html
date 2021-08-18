@@ -49,7 +49,8 @@
 			/* initialize state of the component using a constructor */
 			constructor(props) {
 				super(props);
-				this.state = {students: STUDENTS};
+				this.state = {students: STUDENTS,
+							  studentsClone: STUDENTS};
 			}
 			
 			handleOnChange(event) {
@@ -67,7 +68,7 @@
 				}
 				
 				// reset the state after the search so that only the filtered students will appear after the search
-				this.setState({students:filteredStudents});
+				this.setState({studentsClone:filteredStudents});
 				
 			}
 		
@@ -88,7 +89,7 @@
 								</thead>
 								<tbody>
 									
-										{this.state.students.map(student => <RowCreator item={student}/>	)}							
+										{this.state.studentsClone.map(student => <RowCreator item={student}/>	)}							
 									
 								</tbody>
 							</table>
