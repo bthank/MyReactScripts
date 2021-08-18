@@ -52,10 +52,30 @@
 		
 		}
  
-	
+		class ListCoursesUsingMap extends React.Component {
+		
+			render() {
+			
+				var courses = ['ReactJs','Angular','JavaScript','Java'];
+								
+				return 	<div>
+							<h1>{this.props.title}</h1>
+							<ul>
+								{courses.map(course=><li>{course}</li>)}
+							</ul>
+
+						</div>;
+			}	
+		
+		}	
 		/* use the React component as if you are using an HTML element in the render method  */
 		/*   ReactDOM.render(JSX,find document element) */
-		ReactDOM.render(<div><ListCoursesUsingArray title="List of Courses"/></div>,document.getElementById("root"));
+	/*	ReactDOM.render(<div><ListCourses title="List of Courses Using Hardcoded List"/></div>,document.getElementById("root"));
+
+		ReactDOM.render(<div><ListCoursesUsingArray title="List of Courses Using Array"/></div>,document.getElementById("root"));
+	*/
+
+		ReactDOM.render(<div><ListCoursesUsingMap title="List of Courses Using Map"/></div>,document.getElementById("root"));
 	</script>
 </body>
 </html>
