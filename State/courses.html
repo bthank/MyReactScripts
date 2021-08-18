@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Courses</title>
+	<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+	
+ 
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+ 
+		class ListCourses extends React.Component {
+		
+			constructor(props) {
+				super(props); /* always invoke the super class' constructor using super() first.  In this case the super class is React.Component */
+			
+				this.state = {courses:['Angular','React','Node']}
+			
+			}
+			
+			render() {
+				return <div>
+							{this.props.title}
+							<ul>
+								{this.state.courses.map(course => <li>{course}</li>)}
+							</ul>
+							<input type="button" value="Update" />
+						</div>;
+			
+			}
+		
+		
+		}
+		
+ 
+	
+		/* use the React component as if you are using an HTML element in the render method  */
+		/*   ReactDOM.render(JSX,find document element) */
+		ReactDOM.render(<div><ListCourses title="Courses"/></div>,document.getElementById("root"));
+	</script>
+</body>
+</html>
