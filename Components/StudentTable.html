@@ -53,6 +53,25 @@
 		
 		
 		
+		
+		class RowCreator extends React.Component {
+		
+		
+			render() {
+			
+				var student = this.props.item;
+				
+				return 	<tr>
+							<td>{student.name}</td>
+							<td>{student.age}</td>
+							<td>{student.city}</td>
+						</tr>;			
+			}
+		
+		
+		
+		}
+		
 		class ListStudentTableDynamically extends React.Component {
 		
 			render() {
@@ -76,9 +95,7 @@
 								</thead>
 								<tbody>
 									
-										{students.map(student => <tr><td>{student.name}</td>
-										<td>{student.age}</td>
-										<td>{student.city}</td></tr>	)}							
+										{students.map(student => <RowCreator item={student}/>	)}							
 									
 								</tbody>
 							</table>
