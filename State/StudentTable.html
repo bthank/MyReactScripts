@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Arrays</title>
+	<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+	
+ 
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+ 
+ 			
+		class RowCreator extends React.Component {
+		
+		
+			render() {
+			
+				var student = this.props.item;
+				
+				return 	<tr>
+							<td>{student.name}</td>
+							<td>{student.age}</td>
+							<td>{student.city}</td>
+						</tr>;			
+			}
+		
+		
+		
+		}
+		
+		/* making the student list a constant outside of component block */
+		var STUDENTS = [
+						{name: "Doug Bailey",age: 40,city:"King of Prussia"},
+						{name: "Mark McMillan",age: 35,city:"Philadelphia"},
+						{name: "Bill Boyle",age: 26,city:"Jacksonville"},
+						{name: "Anna Winters",age: 32,city:"San Diego"},						
+						{name: "Donald Duck",age: 15,city:"Orlando"},
+						{name: "Daisy Duck",age: 17,city:"Los Angeles"},
+						{name: "Fred Flintstone",age: 40,city:"Stoneybrook"},
+						{name: "Sarah Bloom",age: 29,city:"Memphis"}				
+					];		
+		
+		class ListStudentTableDynamically extends React.Component {
+		
+			/* initialize state of the component using a constructor */
+			constructor(props) {
+				super(props);
+				this.state = {students: STUDENTS};
+			
+			
+			}
+		
+			render() {
+			
+
+			
+			
+				return 	<div>
+							<h1>{this.props.title}</h1>
+							<table>
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Age</th>
+										<th>City</th>
+									</tr>
+								</thead>
+								<tbody>
+									
+										{students.map(student => <RowCreator item={student}/>	)}							
+									
+								</tbody>
+							</table>
+
+						</div>;
+			}	
+		
+		}		
+	
+		/* use the React component as if you are using an HTML element in the render method  */
+		/*   ReactDOM.render(JSX,find document element) */
+
+		/*
+		ReactDOM.render(<div><ListStudents title="List of Students using a table statically"/></div>,document.getElementById("root"));
+		*/
+		ReactDOM.render(<div><ListStudentTableDynamically title="List of Students using a table dynamically"/></div>,document.getElementById("root"));
+
+	</script>
+</body>
+</html>
