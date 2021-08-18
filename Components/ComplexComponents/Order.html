@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Display Order</title>
+	<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+	
+ 
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+ 
+		class DisplayOrder extends  React.Component {
+		/* override the render method to display customer details */
+			render() {
+				return 	<div><h1>Order Details</h1>
+							<b>Id: {this.props.id}</b><br/>
+							<b>Name: {this.props.name}</b><br/>
+							<b>Price: {this.props.price}</b><br/>
+
+							<DisplayShippingAddress shippingAddress={this.props.shippingAddress}/>
+							<PaymentInformation paymentInfo={this.props.paymentInfo}/>
+
+						</div>;
+			}
+		}
+		
+		class DisplayShippingAddress extends React.Component {
+			render() {
+				return 	<div><h2>Shipping Address</h2>
+							<b>HouseNo: {this.props.shippingAddress.houseNo}</b><br/>
+							<b>Street: {this.props.shippingAddress.street}</b><br/>
+							<b>City: {this.props.shippingAddress.city}</b><br/>
+							<b>State: {this.props.shippingAddress.state}</b><br/>
+							<b>Zip Code: {this.props.shippingAddress.zipCode}</b><br/>
+						</div>;
+			}
+		}
+		
+		var shippingAddress1 = {
+			houseNo: 17,
+			street: "Alpine Drive",
+			city: "Chatanooga",
+			state: "TN",
+			zipCode: "48292"
+		};
+		var shippingAddress2 = {
+			houseNo: 401,
+			street: "Pinnacle Drive",
+			city: "Detroit",
+			state: "MI",
+			zipCode: "71831"
+		}; 
+		
+		class PaymentInformation extends React.Component {
+		
+			render() {
+				return <div>
+							<h2>Payment Information</h2>
+							<b>Name: {this.props.paymentInfo.name}</b><br/>
+							<b>Credit Card No: {this.props.paymentInfo.ccno}</b><br/>
+							<b>Exp Date: {this.props.paymentInfo.expDate}</b><br/>	
+						</div>;
+			}
+		}
+		
+		var paymentInfo1 = {
+			name: "Joe Stevens",
+			ccno: "1111222233334444",
+			expDate: "04/2024"
+		}
+		var paymentInfo2 = {
+			name: "Anna Wienstein",
+			ccno: "2323425587651345",
+			expDate: "05/2027"
+		}
+		
+		/* use the React component as if you are using an HTML element in the render method  */
+		/*   ReactDOM.render(JSX,find document element) */
+		ReactDOM.render(<div>	<DisplayOrder id="84" name="Joe Stevens" price="$43.95" shippingAddress={shippingAddress1} paymentInfo={paymentInfo1}/> 
+								<DisplayOrder id="93" name="Anna Wienstein" price="$128.50" shippingAddress={shippingAddress2} paymentInfo={paymentInfo2}/> </div>,document.getElementById("root"));
+	</script>
+</body>
+</html>
