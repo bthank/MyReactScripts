@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Arrays</title>
+	<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+	
+ 
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+ 
+		class ListStudents extends React.Component {
+		
+			render() {
+				return 	<div>
+							<h1>{this.props.title}</h1>
+							<table>
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Age</th>
+										<th>City</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Doug Bailey</td>
+										<td>40</td>
+										<td>King of Prussia</td>									
+									</tr>
+									<tr>
+										<td>Simon Cowell</td>
+										<td>35</td>
+										<td>Brighton</td>									
+									</tr>
+									<tr>
+										<td>Amy Kohler</td>
+										<td>31</td>
+										<td>Leeds</td>									
+									</tr>
+
+								</tbody>
+							</table>
+
+						</div>;
+			}	
+		
+		}
+		
+	
+		/* use the React component as if you are using an HTML element in the render method  */
+		/*   ReactDOM.render(JSX,find document element) */
+
+
+		ReactDOM.render(<div><ListStudents title="List of Students using a table"/></div>,document.getElementById("root"));
+	</script>
+</body>
+</html>
