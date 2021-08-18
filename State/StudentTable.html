@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>Arrays</title>
+	<title>Searchable List of Students </title>
 	<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
 	<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
@@ -53,6 +53,11 @@
 			
 			
 			}
+			
+			handleOnChange(this) {
+			
+			
+			}
 		
 			render() {
 			
@@ -61,6 +66,9 @@
 			
 				return 	<div>
 							<h1>{this.props.title}</h1>
+							<br/>
+							<input type="text" placeholder="Search by name or city" onChange={this.handleOnChange.bind(this)} />
+							<br/><br/><br/>
 							<table>
 								<thead>
 									<tr>
@@ -71,7 +79,7 @@
 								</thead>
 								<tbody>
 									
-										{students.map(student => <RowCreator item={student}/>	)}							
+										{this.state.students.map(student => <RowCreator item={student}/>	)}							
 									
 								</tbody>
 							</table>
@@ -84,10 +92,8 @@
 		/* use the React component as if you are using an HTML element in the render method  */
 		/*   ReactDOM.render(JSX,find document element) */
 
-		/*
-		ReactDOM.render(<div><ListStudents title="List of Students using a table statically"/></div>,document.getElementById("root"));
-		*/
-		ReactDOM.render(<div><ListStudentTableDynamically title="List of Students using a table dynamically"/></div>,document.getElementById("root"));
+		 
+		ReactDOM.render(<div><ListStudentTableDynamically title="Searchable List of Students using a dynamic table"/></div>,document.getElementById("root"));
 
 	</script>
 </body>
