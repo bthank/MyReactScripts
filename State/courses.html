@@ -18,17 +18,27 @@
 			constructor(props) {
 				super(props); /* always invoke the super class' constructor using super() first.  In this case the super class is React.Component */
 			
+				/* set initial state for courses */
 				this.state = {courses:['Angular','React','Node']}
+				
 			
+			}
+			
+			
+			handleUpdate() {
+				alert("Inside handleUpdate");
+				
+				/* set new updated state for courses */
+				this.setState({courses:['Java','JavaScript']});
 			}
 			
 			render() {
 				return <div>
-							{this.props.title}
+							<h1>{this.props.title}</h1>
 							<ul>
 								{this.state.courses.map(course => <li>{course}</li>)}
 							</ul>
-							<input type="button" value="Update" />
+							<input type="button" value="Update" onClick={this.handleUpdate.bind(this)} />
 						</div>;
 			
 			}
@@ -40,7 +50,7 @@
 	
 		/* use the React component as if you are using an HTML element in the render method  */
 		/*   ReactDOM.render(JSX,find document element) */
-		ReactDOM.render(<div><ListCourses title="Courses"/></div>,document.getElementById("root"));
+		ReactDOM.render(<div><ListCourses title="List of Courses"/></div>,document.getElementById("root"));
 	</script>
 </body>
 </html>
