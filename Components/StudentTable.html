@@ -51,12 +51,51 @@
 		
 		}
 		
+		
+		
+		class ListStudentTableDynamically extends React.Component {
+		
+			render() {
+			
+				var students = [
+								{name: "Doug Bailey",age: 40,city:"King of Prussia"},
+								{name: "Mark McMillan",age: 35,city:"Philadelphia"},
+								{name: "Sarah Bloom",age: 29,city:"Memphis"}				
+							];
+			
+			
+				return 	<div>
+							<h1>{this.props.title}</h1>
+							<table>
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Age</th>
+										<th>City</th>
+									</tr>
+								</thead>
+								<tbody>
+									
+										{students.map(student => <tr><td>{student.name}</td>
+										<td>{student.age}</td>
+										<td>{student.city}</td></tr>	)}							
+									
+								</tbody>
+							</table>
+
+						</div>;
+			}	
+		
+		}		
 	
 		/* use the React component as if you are using an HTML element in the render method  */
 		/*   ReactDOM.render(JSX,find document element) */
 
+		/*
+		ReactDOM.render(<div><ListStudents title="List of Students using a table statically"/></div>,document.getElementById("root"));
+		*/
+		ReactDOM.render(<div><ListStudentTableDynamically title="List of Students using a table dynamically"/></div>,document.getElementById("root"));
 
-		ReactDOM.render(<div><ListStudents title="List of Students using a table"/></div>,document.getElementById("root"));
 	</script>
 </body>
 </html>
