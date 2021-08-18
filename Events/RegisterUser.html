@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Register User Event</title>
+	<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+	
+ 
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+ 
+		class RegisterUser extends React.Component {
+		
+			constructor() {
+				super();
+				this.handleSubmit = this.handleSubmit.bind(this);
+			  }		
+		
+			handleSubmit(event) {
+				event.preventDefault();
+				const data = new FormData(event.target);
+				 
+				console.log(event);
+				console.log(event.type);
+				console.log(this);
+				console.log('firstName: ',data.get('firstName'));
+				console.log('lastName: ',data.get('lastName'));				
+				console.log('email: ',data.get('email'));			 
+			}
+
+			render(){
+				return 	<div>
+							<h1>{this.props.title}</h1>
+							
+							<form onSubmit={this.handleSubmit}>
+							<label  htmlFor="firstName">First Name</label>							
+							<input type='text' name="firstName"       /><br/><br/>
+
+							<label  htmlFor="lastName">Last Name</label>							
+							<input type='text' name="lastName"   /><br/><br/>
+
+							<label  htmlFor="email">Email</label>							
+							<input type='text' name="email"    /><br/><br/>
+							
+							<label  htmlFor="password">Password</label>
+							<input type='password' name="password"    /><br/><br/>
+							<br/><br/>
+							 
+							<button>Send data!</button>
+							</form>
+						</div>;
+			}
+			
+		
+		}
+		
+ 
+	
+		/* use the React component as if you are using an HTML element in the render method  */
+		/*   ReactDOM.render(JSX,find document element) */
+		ReactDOM.render(<div><RegisterUser title="Please Register"/></div>,document.getElementById("root"));
+	</script>
+</body>
+</html>
