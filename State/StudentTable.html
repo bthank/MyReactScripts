@@ -50,19 +50,28 @@
 			constructor(props) {
 				super(props);
 				this.state = {students: STUDENTS};
-			
-			
 			}
 			
-			handleOnChange(this) {
-			
-			
+			handleOnChange(event) {
+				//alert(event.target.value);
+				var filterString = event.target.value;
+				
+				var filteredStudents = [];
+				
+				for (var student of this.state.students) {
+					// do a case insensitive search on name and city by converting everything to lowercase before searching, else it will be a case sensitive search
+					if (student.name.toLowerCase().indexOf(filterString.toLowerCase()) >= 0 ||
+						student.city.toLowerCase().indexOf(filterString.toLowerCase()) >= 0) {
+						filteredStudents.push(student);
+					}
+				}
+				
+				// reset the state after the search so that only the filtered students will appear after the search
+				this.setState({students:filteredStudents});
+				
 			}
 		
 			render() {
-			
-
-			
 			
 				return 	<div>
 							<h1>{this.props.title}</h1>
