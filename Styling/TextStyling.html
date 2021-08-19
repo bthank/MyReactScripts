@@ -28,7 +28,7 @@
 			
 				// define JSON object for styling React component
 				var textStyle = {				
-					 backgroundColor: this.props.bgcolor,
+					 backgroundColor: this.props.bgcolor	,
 					 color: "yellow",
 					 fontSize: 50,
 					 textAlign: "center",
@@ -47,13 +47,15 @@
 		}
 	
 	
-	
+		var india = <Text bgcolor="red">India</Text>;
+		var canada = <Text bgcolor="black">Canada</Text>;
+		
 		ReactDOM.render(<div> 
 								<Text bgcolor="brown">USA</Text>  
-								<Text bgcolor="black">Canada</Text>  
+								{canada}  
 								<Text bgcolor="violet">Great Britain</Text> 
 								<Text bgcolor="green">Brazil</Text>  
-								<Text bgcolor="red">India</Text>      								
+								{india}      								
 						</div>,document.getElementById("root"));
 	</script>
 </body>
