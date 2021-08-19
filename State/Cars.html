@@ -15,17 +15,65 @@
 		
 		<script type="text/babel">
 			
+			
+			class TABLEStyle extends React.Component {
+			
+				render() {
+					// define JSON object for styling HTML element
+					var tableStyle = {
+						border: 10,
+						backgroundColor: "red",
+						width: 1000
+					}
+					
+					return <table style={tableStyle}>
+								{this.props.children}
+							</table>;	
+				}
+			}
+			
+			class THStyle extends React.Component {
+			
+				render() {
+					// define JSON object for styling HTML element
+					var thStyle = {
+						backgroundColor: "gray",
+						color: "orange",
+						height: 30,
+						textAlign: "center"
+					}
+					
+					return <th style={thStyle}>{this.props.children}</th>;	
+				}
+			}						
+			class TDStyle extends React.Component {
+			
+				render() {
+					// define JSON object for styling HTML element
+					var tdStyle = {
+						backgroundColor: "lightblue",
+						color: "darkblue",
+						height: 20,
+						textAlign: "center"
+					}
+					
+					return <td style={tdStyle}>{this.props.children}</td>;	
+				}
+			}			
+			
 			class RowCreator extends React.Component {
 			
 			
 				render() {
 				
+					 
+				
 					var car = this.props.item;
 					
 					return 	<tr>
-								<td>{car.make}</td>
-								<td>{car.model}</td>
-								<td>{car.year}</td>
+								<TDStyle>{car.make}</TDStyle>
+								<TDStyle>{car.model}</TDStyle>
+								<TDStyle>{car.year}</TDStyle>
 							</tr>;			
 				}
 			
@@ -70,12 +118,12 @@
 								
 								<input type="button" value="Update" onClick={this.handleUpdate.bind(this)} />					
 								
-								<table>
+								<TABLEStyle>
 									<thead>
 										<tr>
-											<th>Make</th>
-											<th>Model</th>
-											<th>Year</th>
+											<THStyle>Make</THStyle>
+											<THStyle>Model</THStyle>
+											<THStyle>Year</THStyle>
 										</tr>
 									</thead>
 									<tbody>
@@ -83,7 +131,7 @@
 											{this.state.displayList.map(car => <RowCreator item={car}/>	)}							
 										
 									</tbody>
-								</table>
+								</TABLEStyle>
 
 							</div>;
 				}	
